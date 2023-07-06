@@ -10,6 +10,10 @@ const userRouter = require('./controllers/userController');
 
 //load middlewares in the backend
 const errorHandler = require('./middlewares/errorHandler');
+const logRequest = require('./middlewares/logRequest');
+
+//set up middleware as preprocess for requests
+app.use(logRequest);
 
 //welcome message
 app.get('/', async (req, res)=>{
