@@ -8,6 +8,9 @@ const carRouter = require('./controllers/carController');
 const reservationRouter = require('./controllers/reservationController');
 const userRouter = require('./controllers/userController');
 
+//load middlewares in the backend
+const errorHandler = require('./middlewares/errorHandler');
+
 //welcome message
 app.get('/', async (req, res)=>{
     res.send("Welcome to the Car Rental backend's API.")
@@ -17,3 +20,6 @@ app.get('/', async (req, res)=>{
 app.use('/api/v1', carRouter);
 app.use('/api/v1', reservationRouter);
 app.use('/api/v1', userRouter);
+
+//set up middlewares in app
+app.use(errorHandler);
