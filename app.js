@@ -3,7 +3,16 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
-//set up routers
-const carController = require('./controllers/carController');
-const reservationController = require('./controllers/reservationController');
-const userController = require('./controllers/userController');
+//load routers in the backend
+const carRouter = require('./controllers/carController');
+const reservationRouter = require('./controllers/reservationController');
+const userRouter = require('./controllers/userController');
+
+app.get('/', async (req, res)=>{
+    res.send("Welcome to the Car Rental backend's API.")
+});
+
+//set up routers in app
+app.use('/api/v1', carRouter);
+app.use('/api/v1', reservationRouter);
+app.use('/api/v1', userRouter);
