@@ -27,3 +27,5 @@ app.use('/api/v1', userRouter);
 
 //set up middlewares in app
 app.use(errorHandler);
+
+module.exports = app;
