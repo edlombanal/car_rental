@@ -17,8 +17,3 @@ models: database models
 node_modules
 test: unit test and such
 utils: utilities
-
-# .js description
-
-app.js: app logic
-index.js: server logic
