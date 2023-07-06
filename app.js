@@ -8,6 +8,7 @@ const carRouter = require('./controllers/carController');
 const reservationRouter = require('./controllers/reservationController');
 const userRouter = require('./controllers/userController');
 
+//welcome message
 app.get('/', async (req, res)=>{
     res.send("Welcome to the Car Rental backend's API.")
 });
