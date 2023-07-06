@@ -11,7 +11,7 @@ router.get('/cars', async (req, res, next) => {
     };
 });
 
-//router for cars by id
+//router for cars by car id
 router.get('/cars/:id', async(req, res, next)=>{
     try {
         //res.status(200).send("Not implemented.");
@@ -40,3 +40,5 @@ router.delete('/cars', async(req, res, next)=>{
       next(error);  
     };
 });
+
+module.exports = router;
