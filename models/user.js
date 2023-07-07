@@ -10,19 +10,19 @@ const userSchema = new Schema({
     },
     name: {
         type: String,
-        required: [true, 'Please enter your name']
+        required: [true, 'Please enter your name.']
     },
     role: {
         type: String,
-        required: [true, 'Please enter user role']
+        required: [true, 'Please enter user role.']
     },
     birthday: {
         type: Date,
-        required: [true, 'Please enter birthday']
+        required: [true, 'Please enter birthday.']
     },
     password: {
         type: String,
-        required: [true, 'Please enter a password']
+        required: [true, 'Please enter a password.']
     }
 },{
     timestamps: {createdAt: 'creationDate', updatedAt: 'lastUpdate'}
