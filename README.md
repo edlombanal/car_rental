@@ -7,6 +7,9 @@ Car rental project.
 express @4 --save
 nodemon --save-dev
 dotenv --save
+mongoose --save
+mongodb --save
+bcrypt --save
 
 # folder descriptions
 
