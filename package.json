@@ -4,7 +4,7 @@
   "description": "Car rental project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

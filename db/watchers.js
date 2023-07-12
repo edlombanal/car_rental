@@ -1,13 +1,13 @@
-const {connection} = require('mongoose');
+const { connection } = require("mongoose");
 
 const gracefulShutdown = async () => {
-    await connection.close();
+  await connection.close();
 };
 
 const setUpMongoDBWatchers = () => {
-    process.on('exit', gracefulShutdown);
-    process.on('SIGTERM', gracefulShutdown);
-    process.on('uncaughtException', gracefulShutdown);
+  process.on("exit", gracefulShutdown);
+  process.on("SIGTERM", gracefulShutdown);
+  process.on("uncaughtException", gracefulShutdown);
 };
 
-module.exports = {gracefulShutdown, setUpMongoDBWatchers};
+module.exports = { gracefulShutdown, setUpMongoDBWatchers };
