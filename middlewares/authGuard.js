@@ -4,7 +4,7 @@ const authGuard = (req, res, next) => {
   //look for auth header
   const { authorization } = req.header;
   if (!authorization) {
-    res.status(401).send("You don't have access to this resource.");
+    res.status(401).send("You don't have access to this resource. hit");
   } else {
     try {
       //authorization bearer xxxxxxxxxxxxx

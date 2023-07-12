@@ -35,8 +35,8 @@ router.post("/users/login", async (req, res, next) => {
 router.get("/users", authGuard, async (req, res, next) => {
   try {
     if (req.jwt_payload.role == "admin") {
-      const listaUsuarios = Users.find();
-      res.json(listaUsuarios);
+      const userList = User.find();
+      res.json(userList);
     } else {
       throw new error("You don't have access to execute this option.");
     }
