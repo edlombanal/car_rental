@@ -1,6 +1,8 @@
 require("dotenv").config();
 
 const express = require("express");
+const morgan = require("morgan");
+const fs = require("fs"); //already installed in node
 const app = express();
 
 //load routers in the backend
@@ -10,11 +12,16 @@ const userRouter = require("./controllers/userController");
 
 //load middlewares in the backend
 const errorHandler = require("./middlewares/errorHandler");
-const logRequest = require("./middlewares/logRequest");
 
 //set up middleware as preprocess for requests
-app.use(logRequest);
 app.use(express.json());
+
+//set up morgan module
+const accessLogStream = fs.createWriteStream("./logs/access.log", {
+  flags: "a",
+});
+app.use(morgan("combined", { stream: accessLogStream })); //writes in file
+app.use(morgan("tiny")); //writes in console
 
 //welcome message
 app.get("/", async (req, res) => {
