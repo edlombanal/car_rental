@@ -2,14 +2,14 @@ const jwt = require("jsonwebtoken");
 
 const authGuard = (req, res, next) => {
   //look for auth header
-  const { authorization } = req.header;
+  const { authorization } = req.headers;
   if (!authorization) {
-    res.status(401).send("You don't have access to this resource. hit");
+    res.status(401).send("You don't have access to this resource.");
   } else {
     try {
       //authorization bearer xxxxxxxxxxxxx
       const token = authorization.split(" ")[1];
-      req.jwt_payload = jwt.try(token, process.env.JWT_SECRET_KEY);
+      req.jwt_payload = jwt.verify(token, process.env.JWT_SECRET_KEY);
       next();
     } catch (error) {
       console.log(error);

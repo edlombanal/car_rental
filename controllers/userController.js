@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
+
 const userMethods = require("../utils/userMethods");
+const User = require("../models/user");
 const authGuard = require("../middlewares/authGuard");
 
 //router to create users
@@ -38,9 +40,10 @@ router.get("/users", authGuard, async (req, res, next) => {
       const userList = User.find();
       res.json(userList);
     } else {
-      throw new error("You don't have access to execute this option.");
+      res.status(401).send("You don't have access to execute this option.");
     }
   } catch (error) {
+    console.log(error);
     next(error);
   }
 });
