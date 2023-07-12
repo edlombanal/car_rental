@@ -24,10 +24,12 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "csurf": "^1.11.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongodb": "^5.7.0",
-    "mongoose": "^7.3.2"
+    "mongoose": "^7.3.2",
+    "xss": "^1.0.14"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

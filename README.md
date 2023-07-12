@@ -10,6 +10,9 @@ dotenv --save
 mongoose --save
 mongodb --save
 bcrypt --save
+jsonwebtoken --save
+xss
+csurf
 
 # folder descriptions
 
@@ -19,4 +22,4 @@ middlewares: store middleware functions
 models: database models
 node_modules
 test: unit test and such
-utils: utilities and enviroment variables
+utils: utilities and environment variables
