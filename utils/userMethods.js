@@ -16,15 +16,6 @@ const registerUser = async (payload) => {
   }
 };
 
-const loginUser = async (username, password) => {
-  const usr = await User.findOne({ email: username });
-  if (!usr) throw new Error("User not found.");
-
-  const passwordMatch = await usr.comparePassword(password);
-  if (!passwordMatch) throw new Error("Username or password is not valid");
-  else return "token";
-};
-
 const createToken = async (payload) => {
   try {
     const token = await jwt.sign(payload, process.env.JWT_SECRET_KEY, {
@@ -35,6 +26,19 @@ const createToken = async (payload) => {
     console.log(error);
     return null;
   }
+};
+
+const loginUser = async (username, password) => {
+  const usr = await User.findOne({ email: username });
+  if (!usr) throw new Error("User not found.");
+
+  const passwordMatch = await usr.comparePassword(password);
+  if (!passwordMatch) throw new Error("Username or password is not valid");
+  else
+    return await createToken({
+      email: usr.email,
+      role: usr.role,
+    });
 };
 
 module.exports = {
