@@ -14,6 +14,7 @@ jsonwebtoken --save
 xss
 csurf
 morgan --save
+express-status-monitor
 
 # folder descriptions
 
