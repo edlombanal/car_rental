@@ -13,6 +13,7 @@ bcrypt --save
 jsonwebtoken --save
 xss
 csurf
+morgan --save
 
 # folder descriptions
 
