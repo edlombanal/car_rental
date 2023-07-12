@@ -23,3 +23,7 @@ models: database models
 node_modules
 test: unit test and such
 utils: utilities and environment variables
+
+# jwt secret key command
+
+> require('crypto').randomBytes(256).toString('base64');
