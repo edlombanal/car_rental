@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const jwt = require("jsonwebtoken");
 
 const registerUser = async (payload) => {
   try {
@@ -22,6 +23,18 @@ const loginUser = async (username, password) => {
   const passwordMatch = await usr.comparePassword(password);
   if (!passwordMatch) throw new Error("Username or password is not valid");
   else return "token";
+};
+
+const createToken = async (payload) => {
+  try {
+    const token = await jwt.sign(payload, process.env.JWT_SECRET_KEY, {
+      expiresIn: process.env.JWT_TTL,
+    });
+    return token;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 };
 
 module.exports = {
