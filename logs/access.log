@@ -1,0 +1,2 @@
+::ffff:127.0.0.1 - - [12/Jul/2023:23:22:40 +0000] "GET /api/v1/users HTTP/1.1" 500 319 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [12/Jul/2023:23:23:10 +0000] "POST /api/v1/users/login HTTP/1.1" 200 191 "-" "Thunder Client (https://www.thunderclient.com)"

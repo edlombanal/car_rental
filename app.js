@@ -14,7 +14,7 @@ const userRouter = require("./controllers/userController");
 const errorHandler = require("./middlewares/errorHandler");
 
 //set up middleware as preprocess for requests
-app.use(express.json());
+app.use(express.json()); //processes request bodies as json
 
 //set up morgan module
 const accessLogStream = fs.createWriteStream("./logs/access.log", {
